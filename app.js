@@ -585,6 +585,7 @@ function setUnit(unitKey) {
   timerId = null;
 
   $("#unitTitle").textContent = data.title;
+  $("#unitEyebrow").textContent = `Basado en los documentos de ${data.title}`;
   $("#unitHero").textContent = data.hero;
   $("#unitIntro").textContent = data.intro;
   $("#sourceFileName").textContent = data.sourceFile;

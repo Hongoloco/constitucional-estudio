@@ -3,14 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unidad 1 - Estudio de Constitucional</title>
+    <title>Aula Constitucional - Web de estudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+4:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Derecho Constitucional</p>
-        <h1 id="unitTitle">Unidad 1</h1>
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="mark-ring"></span>
+          <span class="mark-book"></span>
+          <span class="mark-column"></span>
+        </div>
+        <div>
+          <p class="eyebrow">Derecho Constitucional</p>
+          <h1><span>Aula Constitucional</span><small id="unitTitle">Unidad 1</small></h1>
+        </div>
       </div>
       <div class="unit-switch" aria-label="Selector de unidad">
         <button class="unit-btn active" data-unit="unidad1">Unidad 1</button>
@@ -28,17 +38,29 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Basado en los documentos de Unidad 1</p>
+          <p id="unitEyebrow" class="eyebrow">Basado en los documentos de Unidad 1</p>
           <h2 id="unitHero">Moral, normas sociales, norma jurídica y la discusión público/privado.</h2>
           <p id="unitIntro">
             Estudia por capas: primero ubicá los conceptos, después memorizá con tarjetas y cerrá
             con juegos rápidos para detectar qué falta repasar.
           </p>
+          <div class="study-meta" aria-label="Herramientas de estudio incluidas">
+            <span>Mapa conceptual</span>
+            <span>Tarjetas activas</span>
+            <span>Simulacro</span>
+            <span>NotebookLM</span>
+          </div>
         </div>
-        <div class="progress-panel" aria-label="Progreso de estudio">
-          <span>Progreso</span>
-          <strong id="progressText">0%</strong>
-          <div class="progress-track"><div id="progressFill"></div></div>
+        <div class="hero-side">
+          <div class="academic-seal" aria-hidden="true">
+            <div class="seal-orbit"></div>
+            <div class="seal-core">DC</div>
+          </div>
+          <div class="progress-panel" aria-label="Progreso de estudio">
+            <span>Progreso de práctica</span>
+            <strong id="progressText">0%</strong>
+            <div class="progress-track"><div id="progressFill"></div></div>
+          </div>
         </div>
       </section>
 
