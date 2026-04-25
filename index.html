@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidad 1 - Estudio de Constitucional</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Derecho Constitucional</p>
+        <h1 id="unitTitle">Unidad 1</h1>
+      </div>
+      <div class="unit-switch" aria-label="Selector de unidad">
+        <button class="unit-btn active" data-unit="unidad1">Unidad 1</button>
+        <button class="unit-btn" data-unit="unidad2">Unidad 2</button>
+      </div>
+      <nav class="tabs" aria-label="Secciones de estudio">
+        <button class="tab active" data-view="mapa">Mapa</button>
+        <button class="tab" data-view="tarjetas">Tarjetas</button>
+        <button class="tab" data-view="quiz">Preguntas</button>
+        <button class="tab" data-view="juegos">Juegos</button>
+        <button class="tab" data-view="notebooklm">NotebookLM</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Basado en los documentos de Unidad 1</p>
+          <h2 id="unitHero">Moral, normas sociales, norma jurídica y la discusión público/privado.</h2>
+          <p id="unitIntro">
+            Estudia por capas: primero ubicá los conceptos, después memorizá con tarjetas y cerrá
+            con juegos rápidos para detectar qué falta repasar.
+          </p>
+        </div>
+        <div class="progress-panel" aria-label="Progreso de estudio">
+          <span>Progreso</span>
+          <strong id="progressText">0%</strong>
+          <div class="progress-track"><div id="progressFill"></div></div>
+        </div>
+      </section>
+
+      <section id="mapa" class="view active-view">
+        <div class="section-head">
+          <h2>Mapa de estudio</h2>
+          <input id="searchInput" type="search" placeholder="Buscar concepto..." />
+        </div>
+        <div id="topicGrid" class="topic-grid"></div>
+      </section>
+
+      <section id="tarjetas" class="view">
+        <div class="section-head">
+          <h2>Tarjetas de memoria</h2>
+          <div class="controls">
+            <button id="prevCard" class="icon-btn" aria-label="Tarjeta anterior">‹</button>
+            <span id="cardCounter"></span>
+            <button id="nextCard" class="icon-btn" aria-label="Tarjeta siguiente">›</button>
+          </div>
+        </div>
+        <button id="flashcard" class="flashcard" aria-live="polite"></button>
+        <div class="answer-panel">
+          <label for="cardAnswer">Tu respuesta</label>
+          <textarea id="cardAnswer" rows="3" placeholder="Escribí lo que recuerdes antes de ver la respuesta..."></textarea>
+          <div>
+            <span class="mini-label">Opciones de respuesta</span>
+            <div id="cardChoices" class="card-choices"></div>
+          </div>
+          <div id="answerFeedback" class="answer-feedback" aria-live="polite"></div>
+        </div>
+        <div class="card-actions">
+          <button id="checkCard">Comprobar</button>
+          <button id="showCard">Ver respuesta</button>
+          <button id="knowCard">La sé</button>
+          <button id="shuffleCards">Mezclar</button>
+        </div>
+      </section>
+
+      <section id="quiz" class="view">
+        <div class="section-head">
+          <h2>Preguntas tipo parcial</h2>
+          <span id="quizScore" class="score-pill">0 correctas</span>
+        </div>
+        <div id="quizBox" class="quiz-box"></div>
+        <button id="resetQuiz">Reiniciar preguntas</button>
+      </section>
+
+      <section id="juegos" class="view">
+        <div class="game-layout">
+          <article class="game-panel">
+            <div class="section-head compact">
+              <h2>Unir concepto</h2>
+              <span id="matchScore" class="score-pill">0/0</span>
+            </div>
+            <p class="hint">Elegí un concepto y después su definición.</p>
+            <div id="matchGame" class="match-game"></div>
+          </article>
+
+          <article class="game-panel">
+            <div class="section-head compact">
+              <h2>Contra reloj</h2>
+              <span id="timer" class="score-pill">45s</span>
+            </div>
+            <p class="hint">Respondé verdadero o falso antes de que termine el tiempo.</p>
+            <div id="speedGame" class="speed-game"></div>
+            <div class="speed-actions">
+              <button id="trueBtn">Verdadero</button>
+              <button id="falseBtn">Falso</button>
+              <button id="startSpeed">Iniciar</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="notebooklm" class="view">
+        <div class="section-head">
+          <h2>Conexión con NotebookLM</h2>
+          <a class="open-link" href="https://notebooklm.google.com/" target="_blank" rel="noreferrer">Abrir NotebookLM</a>
+        </div>
+        <div class="notebook-layout">
+          <article class="notebook-panel">
+            <h3>Fuente lista para subir</h3>
+            <p>
+              Subí el archivo <strong id="sourceFileName">unidad-1-notebooklm.md</strong> a NotebookLM como fuente.
+              Incluye resumen, conceptos clave, tarjetas y preguntas de práctica basadas en <span id="sourceUnitName">la Unidad 1</span>.
+            </p>
+            <a id="sourceFileLink" class="file-link" href="unidad-1-notebooklm.md" download>Descargar fuente Markdown</a>
+          </article>
+
+          <article class="notebook-panel">
+            <h3>Prompts para estudiar</h3>
+            <div id="promptList" class="prompt-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
