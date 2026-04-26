@@ -200,3 +200,21 @@ Respuesta: Que la división es imprecisa, histórica, contingente y cada vez men
 - Dame un caso práctico donde se mezclen derecho público y derecho privado.
 - Haceme un simulacro oral sobre normas, poder, Estado y público/privado.
 - Detectá los conceptos que más probablemente me pregunten en un examen.
+
+## Ampliación de repaso
+
+### Comparación de normas
+
+- Norma moral: deber interno, unilateralidad, autonomía y remordimiento.
+- Norma social: uso o costumbre, presión del grupo, rechazo o aceptación social.
+- Norma jurídica: bilateralidad, heteronomía y sanción estatal institucionalizada.
+
+### Ejemplos de sanciones
+
+- Moral: culpa o remordimiento.
+- Social: desaprobación, burla, aislamiento o pérdida de aceptación.
+- Jurídica: prisión, multa, desalojo, decomiso, entrega forzada.
+
+### Público y privado como problema
+
+Guariglia sostiene que la distinción público/privado es útil para estudiar, pero no alcanza para explicar fenómenos mixtos como entidades públicas no estatales, sociedades de economía mixta y actuación empresarial del Estado.

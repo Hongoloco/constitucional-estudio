@@ -831,6 +831,211 @@ unitData.unidad3 = {
   ]
 };
 
+unitData.unidad1.topics.push(
+  {
+    title: "Diferencias rápidas entre normas",
+    points: [
+      "Moral: deber interno, remordimiento, conciencia y formación cultural.",
+      "Social: presión del grupo, rechazo o aceptación social, usos y costumbres.",
+      "Jurídica: bilateralidad, heteronomía y sanción institucionalizada por el Estado."
+    ]
+  },
+  {
+    title: "Ejemplos de sanciones jurídicas",
+    points: [
+      "Pena de prisión ante delitos contra la vida o la libertad.",
+      "Desalojo ante incumplimiento grave del contrato de arrendamiento.",
+      "Entrega forzada de un bien o decomiso cuando la norma lo prevé."
+    ]
+  },
+  {
+    title: "Proceso de cambio normativo",
+    points: [
+      "Primero cambian prácticas, valores o sensibilidades sociales.",
+      "Luego se genera presión para que el derecho acompañe ese cambio.",
+      "El desfasaje entre sociedad y norma explica muchas contradicciones."
+    ]
+  },
+  {
+    title: "Derecho público/privado como problema práctico",
+    points: [
+      "La clasificación puede ordenar materias y planes de estudio.",
+      "Pero en la práctica hay zonas mixtas: entidades públicas no estatales, sociedades de economía mixta y actividad estatal empresarial.",
+      "Por eso Guariglia insiste en analizar contexto histórico y relación Estado-sociedad."
+    ]
+  }
+);
+
+unitData.unidad1.flashcards.push(
+  ["¿Cuál es la sanción típica de la norma moral?", "El remordimiento o reproche interno del sujeto."],
+  ["¿Cuál es la sanción típica de la norma social?", "El rechazo, desaprobación o pérdida de aceptación social."],
+  ["¿Cuál es la sanción típica de la norma jurídica?", "Una consecuencia institucionalizada aplicada por el Estado."],
+  ["¿Qué significa bilateralidad?", "Que frente a un obligado existe otro sujeto con facultad de exigir cumplimiento."],
+  ["¿Qué significa heteronomía?", "Que la regla viene impuesta desde fuera de la conciencia individual."],
+  ["¿Por qué la sociedad influye en el Derecho?", "Porque el Derecho es un fenómeno social y recoge valores, conflictos y cambios históricos."],
+  ["¿Qué muestra una sociedad de economía mixta?", "Que lo público y lo privado pueden coexistir dentro de una misma figura jurídica."],
+  ["¿Por qué la dicotomía público/privado tiene valor didáctico?", "Porque ayuda a ordenar el estudio, aunque no siempre separa con exactitud la realidad jurídica."]
+);
+
+unitData.unidad1.quizQuestions.push(
+  { q: "La bilateralidad supone:", a: ["Un sujeto obligado y otro facultado a exigir", "Solo deber interno", "Rechazo social sin derecho correlativo", "Ausencia de relación jurídica"], correct: 0 },
+  { q: "El remordimiento se vincula principalmente con:", a: ["Norma moral", "Norma jurídica", "Sentencia judicial", "Contrato administrativo"], correct: 0 },
+  { q: "La pérdida de aceptación social es típica de:", a: ["Norma social", "Derecho objetivo", "Sanción penal", "Supremacía constitucional"], correct: 0 },
+  { q: "Guariglia analiza público/privado desde:", a: ["La relación Estado-sociedad y el contexto histórico", "Un único criterio matemático", "La moral individual solamente", "La costumbre familiar"], correct: 0 },
+  { q: "Una entidad pública no estatal muestra que:", a: ["Lo público y lo estatal pueden no coincidir", "Todo lo público es privado", "No existe Derecho público", "La moral es coercible judicialmente"], correct: 0 }
+);
+
+unitData.unidad1.matches.push(
+  ["Remordimiento", "Sanción interna propia de la moral."],
+  ["Rechazo social", "Presión indirecta propia de normas sociales."],
+  ["Sanción estatal", "Consecuencia institucional de la norma jurídica."],
+  ["Sociedad dinámica", "Causa de desajustes entre moral, costumbre y derecho."]
+);
+
+unitData.unidad1.speedFacts.push(
+  ["La bilateralidad implica una relación entre facultad y obligación.", true],
+  ["La norma moral se exige principalmente por sentencia judicial.", false],
+  ["Las normas sociales pueden operar por temor al rechazo.", true],
+  ["Para Guariglia, público y privado son categorías absolutamente fijas.", false]
+);
+
+unitData.unidad2.topics.push(
+  {
+    title: "Tipos de control constitucional",
+    points: [
+      "A priori: se realiza antes de la entrada en vigor de la norma.",
+      "A posteriori: se realiza luego de la existencia o aplicación de la norma.",
+      "Concreto: parte de un caso; abstracto: analiza la norma en sí misma."
+    ]
+  },
+  {
+    title: "Efectos de la declaración de inconstitucionalidad",
+    points: [
+      "La sentencia incide sobre la aplicación del acto cuestionado.",
+      "En Uruguay el régimen se vincula con efectos para el caso concreto.",
+      "El estudio de efectos exige atender solicitud, sentencia y alcance temporal."
+    ]
+  },
+  {
+    title: "Interpretación: texto, contexto y finalidad",
+    points: [
+      "El texto es punto de partida, pero no agota la interpretación constitucional.",
+      "El contexto sistemático evita leer artículos de forma aislada.",
+      "La finalidad permite vincular la norma con su razón constitucional."
+    ]
+  },
+  {
+    title: "Caso Gelman y convencionalidad",
+    points: [
+      "El material de Correa Freitas conecta control de convencionalidad con jurisprudencia interamericana.",
+      "Los casos Gelman muestran tensión entre decisiones internas y obligaciones internacionales.",
+      "La discusión obliga a pensar jerarquía, derechos humanos y responsabilidad estatal."
+    ]
+  }
+);
+
+unitData.unidad2.flashcards.push(
+  ["¿Qué es control a priori?", "Control realizado antes de que la norma entre en vigor."],
+  ["¿Qué es control a posteriori?", "Control realizado después de que la norma existe o se aplica."],
+  ["¿Qué es control concreto?", "Control vinculado con una situación o caso determinado."],
+  ["¿Qué es control abstracto?", "Control de la norma considerada en sí misma, sin depender de un caso individual."],
+  ["¿Por qué importa la finalidad en la interpretación?", "Porque ayuda a comprender la razón constitucional de la disposición."],
+  ["¿Qué riesgo hay en interpretar artículos aisladamente?", "Perder la unidad de la Constitución y generar contradicciones sistemáticas."],
+  ["¿Qué conecta el control de convencionalidad?", "Derecho interno, tratados de derechos humanos y jurisprudencia interamericana."],
+  ["¿Qué exige una acción de inconstitucionalidad?", "Una vía procesal adecuada y legitimación activa suficiente."]
+);
+
+unitData.unidad2.quizQuestions.push(
+  { q: "El control a priori se realiza:", a: ["Antes de la entrada en vigor", "Solo después de sentencia penal", "Siempre por costumbre", "Solo en contratos"], correct: 0 },
+  { q: "El control concreto se caracteriza por:", a: ["Vincularse con un caso determinado", "Analizar solo doctrina", "No tener partes", "Eliminar toda legitimación"], correct: 0 },
+  { q: "Interpretar sistemáticamente significa:", a: ["Leer la norma dentro del conjunto constitucional", "Aislar cada artículo", "Ignorar el contexto", "Aplicar solo la opinión política"], correct: 0 },
+  { q: "El control de convencionalidad se vuelve relevante cuando están en juego:", a: ["Tratados de derechos humanos", "Normas de cortesía", "Modas sociales", "Reglas deportivas"], correct: 0 },
+  { q: "La finalidad de una norma constitucional ayuda a conocer:", a: ["Su razón y función dentro del sistema", "Solo su número de artículo", "La opinión de un funcionario", "Un dato estadístico"], correct: 0 }
+);
+
+unitData.unidad2.matches.push(
+  ["Control a priori", "Control previo a la entrada en vigor."],
+  ["Control a posteriori", "Control posterior a existencia o aplicación."],
+  ["Control concreto", "Control vinculado con un caso."],
+  ["Interpretación sistemática", "Lectura de la Constitución como unidad."]
+);
+
+unitData.unidad2.speedFacts.push(
+  ["El control concreto se vincula con un caso determinado.", true],
+  ["La interpretación constitucional debe ignorar el sistema.", false],
+  ["La finalidad puede orientar el sentido de una norma constitucional.", true],
+  ["El control de convencionalidad se relaciona con derechos humanos.", true]
+);
+
+unitData.unidad3.topics.push(
+  {
+    title: "Estado como persona jurídica",
+    points: [
+      "El Estado puede analizarse como persona jurídica capaz de actuar mediante órganos.",
+      "La teoría del órgano explica cómo se atribuyen al Estado actos realizados por personas físicas.",
+      "Esta construcción permite continuidad institucional aunque cambien los titulares."
+    ]
+  },
+  {
+    title: "Autoridad racional legal",
+    points: [
+      "Max Weber contrapone autoridad racional legal a autoridad tradicional y carismática.",
+      "El Estado moderno se apoya en reglas, cargos y competencias previamente establecidas.",
+      "La burocracia es clave para una dominación continua e impersonal."
+    ]
+  },
+  {
+    title: "Autonomía y autarquía",
+    points: [
+      "Autonomía: posibilidad de darse normas propias dentro del marco jurídico.",
+      "Autarquía: posibilidad de autogobernarse o administrarse.",
+      "Ambas nociones aparecen ligadas a formas de descentralización."
+    ]
+  },
+  {
+    title: "Avocación, revocación y delegación",
+    points: [
+      "Avocación: el superior toma una decisión que correspondía al inferior.",
+      "Revocación: el superior deja sin efecto un acto administrativo.",
+      "Delegación: un órgano actúa en nombre del delegante dentro de límites jurídicos."
+    ]
+  }
+);
+
+unitData.unidad3.flashcards.push(
+  ["¿Qué implica pensar al Estado como persona jurídica?", "Que puede actuar jurídicamente mediante órganos y mantener continuidad más allá de sus titulares."],
+  ["¿Qué es autoridad racional legal?", "Autoridad basada en reglas, cargos y competencias, no en tradición o carisma personal."],
+  ["¿Por qué la burocracia importa en el Estado moderno?", "Porque permite administración continua, impersonal y organizada."],
+  ["¿Qué es autonomía?", "Posibilidad de darse normas propias dentro del marco jurídico."],
+  ["¿Qué es autarquía?", "Posibilidad de autogobernarse o administrarse."],
+  ["¿Qué es avocación?", "El superior toma para sí una decisión que en principio correspondía al inferior."],
+  ["¿Qué es revocación?", "Mecanismo por el cual se deja sin efecto un acto administrativo."],
+  ["¿Qué es delegación?", "Transferencia del ejercicio de atribuciones para actuar en nombre del delegante."]
+);
+
+unitData.unidad3.quizQuestions.push(
+  { q: "La autoridad racional legal se basa en:", a: ["Reglas, cargos y competencias", "Carisma personal exclusivamente", "Herencia familiar solamente", "Ausencia de normas"], correct: 0 },
+  { q: "La burocracia en el Estado moderno permite:", a: ["Administración continua e impersonal", "Supresión del territorio", "Confusión con patrimonio del rey", "Desaparición del poder"], correct: 0 },
+  { q: "Autonomía significa:", a: ["Posibilidad de darse normas propias", "Ausencia total de controles", "Poder hereditario", "Tratado internacional"], correct: 0 },
+  { q: "Autarquía se vincula con:", a: ["Autogobierno o autoadministración", "Rechazo social", "Norma moral", "Sanción penal exclusivamente"], correct: 0 },
+  { q: "Avocación es:", a: ["El superior toma una decisión del inferior", "El inferior elimina al superior", "Un Estado se separa de una confederación", "Un órgano pierde personalidad"], correct: 0 },
+  { q: "La teoría del órgano permite explicar:", a: ["Continuidad institucional aunque cambien titulares", "La inexistencia del Estado", "La moral individual", "La moda social"], correct: 0 }
+);
+
+unitData.unidad3.matches.push(
+  ["Autonomía", "Posibilidad de darse normas propias."],
+  ["Autarquía", "Posibilidad de autogobernarse."],
+  ["Avocación", "El superior decide lo que correspondía al inferior."],
+  ["Delegación", "Ejercicio de atribuciones en nombre del delegante."]
+);
+
+unitData.unidad3.speedFacts.push(
+  ["La autoridad racional legal se basa en reglas y competencias.", true],
+  ["La burocracia impide la continuidad del Estado moderno.", false],
+  ["Autonomía y autarquía se vinculan con descentralización.", true],
+  ["La avocación supone que el inferior toma la competencia del superior.", false]
+);
+
 let activeUnit = "unidad1";
 
 let cardIndex = 0;

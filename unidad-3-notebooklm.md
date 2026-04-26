@@ -247,3 +247,25 @@ Respuesta: Ficción jurídica que permite imputar voluntad humana a una persona 
 - Resumí la teoría del órgano y distinguí órgano, cargo y competencia.
 - Preparame un simulacro oral de Unidad 3.
 - Detectá mis temas débiles si te digo qué preguntas fallé.
+
+## Ampliación de repaso
+
+### Estado como persona jurídica
+
+El Estado puede ser analizado como persona jurídica que actúa mediante órganos. La teoría del órgano permite imputar a la persona estatal actos realizados por personas físicas.
+
+### Autoridad racional legal
+
+Max Weber contrapone autoridad racional legal a autoridad tradicional y carismática. El Estado moderno se apoya en reglas, cargos, competencias y burocracia.
+
+### Autonomía, autarquía y descentralización
+
+- Autonomía: posibilidad de dictarse normas propias.
+- Autarquía: posibilidad de autogobernarse o administrarse.
+- Descentralización: el órgano central no es jerarca, aunque conserva controles.
+
+### Técnicas administrativas
+
+- Avocación: el superior toma una decisión que correspondía al inferior.
+- Revocación: se deja sin efecto un acto administrativo.
+- Delegación: un órgano actúa en nombre del delegante.

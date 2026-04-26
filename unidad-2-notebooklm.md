@@ -204,3 +204,20 @@ Respuesta: La aptitud jurídica para promover una acción por tener un interés 
 - Explicá qué aporta Risso Ferrand a la interpretación constitucional.
 - Dame un caso práctico sobre acción de inconstitucionalidad y corregí mi respuesta.
 - Preparame un simulacro oral completo de la Unidad 2.
+
+## Ampliación de repaso
+
+### Tipos de control
+
+- Control a priori: se realiza antes de que la norma entre en vigor.
+- Control a posteriori: se realiza cuando la norma ya existe o se aplica.
+- Control concreto: vinculado a una situación o proceso determinado.
+- Control abstracto: analiza la norma sin depender de un caso individual.
+
+### Interpretación constitucional
+
+La interpretación constitucional debe atender texto, contexto, finalidad y sistema. Leer artículos aislados puede romper la unidad constitucional.
+
+### Convencionalidad
+
+El control de convencionalidad conecta derecho interno, tratados de derechos humanos y jurisprudencia interamericana. Obliga a pensar la Constitución junto con compromisos internacionales.
