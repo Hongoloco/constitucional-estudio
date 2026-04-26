@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+4:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260425-2" />
+    <link rel="stylesheet" href="styles.css?v=20260425-3" />
   </head>
   <body>
     <header class="topbar">
@@ -27,11 +27,11 @@
         <button class="unit-btn" data-unit="unidad2">Unidad 2</button>
       </div>
       <nav class="tabs" aria-label="Secciones de estudio">
-        <button class="tab active" data-view="mapa">Mapa</button>
-        <button class="tab" data-view="tarjetas">Tarjetas</button>
-        <button class="tab" data-view="quiz">Preguntas</button>
-        <button class="tab" data-view="juegos">Juegos</button>
-        <button class="tab" data-view="notebooklm">NotebookLM</button>
+        <button class="tab active" data-view="mapa"><span class="tab-icon icon-map"></span>Mapa</button>
+        <button class="tab" data-view="tarjetas"><span class="tab-icon icon-card"></span>Tarjetas</button>
+        <button class="tab" data-view="quiz"><span class="tab-icon icon-quiz"></span>Preguntas</button>
+        <button class="tab" data-view="juegos"><span class="tab-icon icon-game"></span>Juegos</button>
+        <button class="tab" data-view="notebooklm"><span class="tab-icon icon-notes"></span>NotebookLM</button>
       </nav>
     </header>
 
@@ -64,6 +64,27 @@
         </div>
       </section>
 
+      <section class="study-dashboard" aria-label="Panel de estudio">
+        <article class="dash-card primary">
+          <span class="dash-label">Continuar</span>
+          <strong id="continueTitle">Tarjetas de memoria</strong>
+          <p id="continueText">Repasá una tarjeta y marcá si ya la sabés.</p>
+          <button id="continueStudy">Entrar al modo estudio</button>
+        </article>
+        <article class="dash-card">
+          <span class="dash-label">Tarjetas aprendidas</span>
+          <strong id="dashCards">0/0</strong>
+        </article>
+        <article class="dash-card">
+          <span class="dash-label">Preguntas resueltas</span>
+          <strong id="dashQuiz">0/0</strong>
+        </article>
+        <article class="dash-card">
+          <span class="dash-label">Conceptos unidos</span>
+          <strong id="dashMatches">0/0</strong>
+        </article>
+      </section>
+
       <section id="mapa" class="view active-view">
         <div class="section-head">
           <h2>Mapa de estudio</h2>
@@ -79,6 +100,7 @@
             <button id="prevCard" class="icon-btn" aria-label="Tarjeta anterior">‹</button>
             <span id="cardCounter"></span>
             <button id="nextCard" class="icon-btn" aria-label="Tarjeta siguiente">›</button>
+            <button id="focusMode" class="study-btn">Enfoque</button>
           </div>
         </div>
         <button id="flashcard" class="flashcard" aria-live="polite"></button>
@@ -158,6 +180,6 @@
       </section>
     </main>
 
-    <script src="app.js?v=20260425-2"></script>
+    <script src="app.js?v=20260425-3"></script>
   </body>
 </html>

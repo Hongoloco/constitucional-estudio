@@ -583,6 +583,8 @@ function setUnit(unitKey) {
   timeLeft = 45;
   clearInterval(timerId);
   timerId = null;
+  document.body.classList.remove("focus-mode");
+  $("#focusMode").textContent = "Enfoque";
 
   $("#unitTitle").textContent = data.title;
   $("#unitEyebrow").textContent = `Basado en los documentos de ${data.title}`;
@@ -637,6 +639,22 @@ function updateProgress() {
   const pct = Math.round((done / total) * 100);
   $("#progressText").textContent = `${pct}%`;
   $("#progressFill").style.width = `${pct}%`;
+  $("#dashCards").textContent = `${knownCards.size}/${flashcards.length}`;
+  $("#dashQuiz").textContent = `${quizAnswered.size}/${quizQuestions.length}`;
+  $("#dashMatches").textContent = `${matched.size}/${matches.length}`;
+  $("#continueTitle").textContent = knownCards.size < flashcards.length ? "Tarjetas de memoria" : "Preguntas tipo parcial";
+  $("#continueText").textContent = knownCards.size < flashcards.length
+    ? `Vas por la tarjeta ${cardIndex + 1}. Practicá respuesta escrita u opción múltiple.`
+    : `Ya repasaste tarjetas. Seguí con ${quizQuestions.length - quizAnswered.size} preguntas.`;
+}
+
+function getTopicCategory(topic) {
+  const title = normalizeText(topic.title);
+  if (/(guariglia|risso|jimenez|correa)/.test(title)) return "Autores y enfoques";
+  if (/(caso|legitimacion|gobiernos|personas publicas)/.test(title)) return "Casos e instituciones";
+  if (/(control|constitucionalidad|convencionalidad|supremacia|reforma|poder constituyente)/.test(title)) return "Control y Constitución";
+  if (/(derecho publico|globalizacion|estado|sociedad)/.test(title)) return "Estado y sociedad";
+  return "Conceptos base";
 }
 
 function renderTopics(filter = "") {
@@ -645,23 +663,58 @@ function renderTopics(filter = "") {
   const filtered = topics.filter((topic) =>
     `${topic.title} ${topic.points.join(" ")}`.toLowerCase().includes(text)
   );
+  const grouped = filtered.reduce((acc, topic) => {
+    const category = getTopicCategory(topic);
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(topic);
+    return acc;
+  }, {});
 
-  grid.innerHTML = filtered
-    .map(
-      (topic) => `
-        <article class="topic-card">
-          <h3>${topic.title}</h3>
-          <ul>${topic.points.map((point) => `<li>${point}</li>`).join("")}</ul>
-        </article>
-      `
-    )
+  grid.innerHTML = Object.entries(grouped)
+    .map(([category, items]) => `
+      <div class="topic-section">
+        <h3 class="topic-section-title">${category}</h3>
+        <div class="topic-section-grid">
+          ${items.map((topic) => `
+            <article class="topic-card">
+              <h3>${topic.title}</h3>
+              <ul>${topic.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    `)
     .join("");
+}
+
+function getCardTopic(question) {
+  const text = normalizeText(question);
+  if (/(guariglia|publico|privado|globalizacion)/.test(text)) return "Estado y sociedad";
+  if (/(constitucion|constitucional|convencionalidad|reforma|poder constituyente)/.test(text)) return "Constitución";
+  if (/(moral|social|juridica|norma|derecho objetivo|derecho subjetivo)/.test(text)) return "Normas";
+  return "Repaso";
+}
+
+function getCardDifficulty(index) {
+  if (index % 5 === 0) return "Alta";
+  if (index % 2 === 0) return "Media";
+  return "Base";
 }
 
 function renderCard(resetPractice = true) {
   const [front, back] = flashcards[cardIndex];
   $("#cardCounter").textContent = `${cardIndex + 1}/${flashcards.length}`;
-  $("#flashcard").innerHTML = `<div><strong>${flipped ? "Respuesta" : "Pregunta"}</strong><span>${flipped ? back : front}</span></div>`;
+  $("#flashcard").innerHTML = `
+    <div class="flashcard-inner">
+      <div class="flashcard-meta">
+        <span>${getCardTopic(front)}</span>
+        <span>Dificultad ${getCardDifficulty(cardIndex)}</span>
+        <span>${cardIndex + 1}/${flashcards.length}</span>
+      </div>
+      <strong>${flipped ? "Respuesta" : "Pregunta"}</strong>
+      <span>${flipped ? back : front}</span>
+    </div>
+  `;
   renderCardChoices();
   if (resetPractice) {
     $("#cardAnswer").value = "";
@@ -750,7 +803,17 @@ function answerCardChoice(button) {
   }
 
   flipped = true;
-  $("#flashcard").innerHTML = `<div><strong>Respuesta</strong><span>${flashcards[cardIndex][1]}</span></div>`;
+  $("#flashcard").innerHTML = `
+    <div class="flashcard-inner">
+      <div class="flashcard-meta">
+        <span>${getCardTopic(flashcards[cardIndex][0])}</span>
+        <span>Dificultad ${getCardDifficulty(cardIndex)}</span>
+        <span>${cardIndex + 1}/${flashcards.length}</span>
+      </div>
+      <strong>Respuesta</strong>
+      <span>${flashcards[cardIndex][1]}</span>
+    </div>
+  `;
 }
 
 function renderQuiz() {
@@ -924,6 +987,14 @@ $("#knowCard").addEventListener("click", () => {
   renderCard();
 });
 $("#shuffleCards").addEventListener("click", shuffleCards);
+$("#focusMode").addEventListener("click", () => {
+  document.body.classList.toggle("focus-mode");
+  $("#focusMode").textContent = document.body.classList.contains("focus-mode") ? "Salir" : "Enfoque";
+});
+$("#continueStudy").addEventListener("click", () => {
+  const target = knownCards.size < flashcards.length ? "tarjetas" : "quiz";
+  document.querySelector(`.tab[data-view="${target}"]`).click();
+});
 $("#checkCard").addEventListener("click", checkCardAnswer);
 $("#showCard").addEventListener("click", () => {
   flipped = true;
