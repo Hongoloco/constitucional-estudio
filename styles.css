@@ -801,7 +801,8 @@ main {
 }
 
 .answer,
-.match-item {
+.match-item,
+.exam-answer {
   min-height: 3rem;
   padding: 0.8rem;
   border: 1px solid var(--line);
@@ -815,7 +816,8 @@ main {
 }
 
 .answer:hover,
-.match-item:hover {
+.match-item:hover,
+.exam-answer:hover {
   transform: translateY(-2px);
   border-color: var(--accent-4);
 }
@@ -904,6 +906,130 @@ main {
   font-weight: 850;
 }
 
+.result-list,
+.author-grid,
+.route-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.result-item,
+.author-card,
+.route-item,
+.weak-panel,
+.exam-panel {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(23, 29, 42, 0.92);
+}
+
+.result-item span,
+.author-card span {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.result-item h3,
+.author-card h3,
+.route-item h3,
+.weak-panel h3,
+.exam-result h3 {
+  margin: 0.35rem 0;
+  color: #eef3ff;
+}
+
+.result-item p,
+.author-card p,
+.route-item p,
+.weak-panel p,
+.exam-result p {
+  color: #c9d3ea;
+  line-height: 1.55;
+}
+
+.result-item button,
+.exam-actions button {
+  min-height: 2.35rem;
+  padding: 0 0.75rem;
+  border-radius: 6px;
+  color: #101520;
+  background: var(--accent);
+  font-weight: 800;
+}
+
+.author-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.author-card strong {
+  color: var(--accent-2);
+}
+
+.route-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.route-item > span {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.route-item.done > span {
+  color: #101520;
+  background: var(--good);
+}
+
+.weak-panel {
+  margin-top: 1rem;
+}
+
+.exam-actions {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.print-area {
+  display: none;
+}
+
+@media print {
+  body {
+    color: #111;
+    background: #fff;
+  }
+
+  .topbar,
+  .hero,
+  .study-dashboard,
+  .view,
+  .section-head {
+    display: none !important;
+  }
+
+  #ruta,
+  .print-area {
+    display: block !important;
+  }
+
+  .print-area {
+    color: #111;
+    font-family: Georgia, serif;
+  }
+}
+
 .match-game {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -962,6 +1088,7 @@ main {
   .hero-side,
   .study-dashboard,
   .topic-section-grid,
+  .author-grid,
   .game-layout,
   .notebook-layout,
   .answers,

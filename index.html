@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+4:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260425-3" />
+    <link rel="stylesheet" href="styles.css?v=20260426-2" />
   </head>
   <body>
     <header class="topbar">
@@ -32,6 +32,10 @@
         <button class="tab" data-view="quiz"><span class="tab-icon icon-quiz"></span>Preguntas</button>
         <button class="tab" data-view="juegos"><span class="tab-icon icon-game"></span>Juegos</button>
         <button class="tab" data-view="notebooklm"><span class="tab-icon icon-notes"></span>NotebookLM</button>
+        <button class="tab" data-view="buscar"><span class="tab-icon icon-map"></span>Buscar</button>
+        <button class="tab" data-view="examen"><span class="tab-icon icon-quiz"></span>Examen</button>
+        <button class="tab" data-view="autores"><span class="tab-icon icon-notes"></span>Autores</button>
+        <button class="tab" data-view="ruta"><span class="tab-icon icon-card"></span>Ruta</button>
       </nav>
     </header>
 
@@ -82,6 +86,10 @@
         <article class="dash-card">
           <span class="dash-label">Conceptos unidos</span>
           <strong id="dashMatches">0/0</strong>
+        </article>
+        <article class="dash-card">
+          <span class="dash-label">Tema débil</span>
+          <strong id="dashWeak">Sin datos</strong>
         </article>
       </section>
 
@@ -178,8 +186,48 @@
           </article>
         </div>
       </section>
+
+      <section id="buscar" class="view">
+        <div class="section-head">
+          <h2>Buscador global</h2>
+          <input id="globalSearch" type="search" placeholder="Buscar en unidades, tarjetas y preguntas..." />
+        </div>
+        <div id="globalResults" class="result-list"></div>
+      </section>
+
+      <section id="examen" class="view">
+        <div class="section-head">
+          <h2>Modo examen</h2>
+          <span id="examStatus" class="score-pill">10 preguntas</span>
+        </div>
+        <div class="exam-panel">
+          <div id="examBox"></div>
+          <div class="exam-actions">
+            <button id="startExam">Iniciar simulacro</button>
+            <button id="resetExam">Reiniciar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="autores" class="view">
+        <div class="section-head">
+          <h2>Panel de autores</h2>
+          <span class="score-pill">Ideas centrales</span>
+        </div>
+        <div id="authorGrid" class="author-grid"></div>
+      </section>
+
+      <section id="ruta" class="view">
+        <div class="section-head">
+          <h2>Ruta de estudio</h2>
+          <button id="printView" class="study-btn">Imprimir resumen</button>
+        </div>
+        <div id="routeList" class="route-list"></div>
+        <div id="weakPanel" class="weak-panel"></div>
+        <div id="printArea" class="print-area"></div>
+      </section>
     </main>
 
-    <script src="app.js?v=20260425-3"></script>
+    <script src="app.js?v=20260426-2"></script>
   </body>
 </html>

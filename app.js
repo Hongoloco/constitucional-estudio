@@ -534,6 +534,60 @@ const unitData = {
   }
 };
 
+unitData.unidad1.authors = [
+  {
+    name: "Carlos E. Guariglia",
+    role: "Derecho público y privado",
+    idea: "La separación público/privado es histórica, imprecisa y cada vez menos visible.",
+    ask: "Explicá por qué la dicotomía público/privado tiene valor didáctico pero no esencial."
+  },
+  {
+    name: "Hans Kelsen",
+    role: "Estructura de la norma",
+    idea: "La norma jurídica puede pensarse como supuesto, deber y sanción.",
+    ask: "Aplicá el esquema 'si A es, debe ser B; si B no es, entonces C' a un caso."
+  },
+  {
+    name: "Georges Burdeau",
+    role: "Teoría del poder",
+    idea: "Distingue poder anónimo, personalizado e institucionalizado.",
+    ask: "Diferenciá poder personalizado y poder institucionalizado."
+  }
+];
+
+unitData.unidad2.authors = [
+  {
+    name: "Justino Jiménez de Aréchaga",
+    role: "Interpretación constitucional",
+    idea: "Distingue método de construcción, interpretación y enseñanza.",
+    ask: "Explicá por qué interpretar no es construir idealmente el Derecho."
+  },
+  {
+    name: "Rubén Correa Freitas",
+    role: "Control constitucional",
+    idea: "Analiza supremacía constitucional, control de constitucionalidad y control de convencionalidad.",
+    ask: "Compará control de constitucionalidad y control de convencionalidad."
+  },
+  {
+    name: "Martín Risso Ferrand",
+    role: "Nueva interpretación constitucional",
+    idea: "Propone actualizar la hermenéutica constitucional uruguaya tradicional.",
+    ask: "Señalá qué aspectos deberían sumarse a la interpretación constitucional clásica."
+  }
+];
+
+unitData.unidad1.notebookPrompts.push(
+  "Armame un examen oral de 8 minutos sobre Unidad 1 y repreguntame si respondo incompleto.",
+  "Detectá mis temas débiles si te digo las preguntas que fallé.",
+  "Convertí la Unidad 1 en una guía para imprimir de una carilla."
+);
+
+unitData.unidad2.notebookPrompts.push(
+  "Armame un examen oral de 8 minutos sobre Unidad 2 con foco en autores.",
+  "Detectá mis temas débiles sobre interpretación, reforma y controles.",
+  "Convertí la Unidad 2 en una guía para imprimir de una carilla."
+);
+
 let activeUnit = "unidad1";
 
 let cardIndex = 0;
@@ -547,8 +601,15 @@ let speedIndex = 0;
 let speedScore = 0;
 let timeLeft = 45;
 let timerId = null;
+let weakTopics = {};
+let examQuestions = [];
+let examIndex = 0;
+let examCorrect = 0;
+let examAnswers = [];
+let appReady = false;
 
 const $ = (selector) => document.querySelector(selector);
+const storageKey = (unit = activeUnit) => `aula-constitucional-${unit}`;
 
 function cloneCards(cards) {
   return cards.map((card) => [...card]);
@@ -561,7 +622,39 @@ function cloneQuestions(questions) {
   }));
 }
 
+function saveProgress() {
+  if (!activeUnit) return;
+  localStorage.setItem(storageKey(), JSON.stringify({
+    cardIndex,
+    knownCards: [...knownCards],
+    quizAnswered: [...quizAnswered],
+    correctQuiz,
+    matched: [...matched],
+    weakTopics
+  }));
+}
+
+function loadProgress() {
+  const raw = localStorage.getItem(storageKey());
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    cardIndex = Math.min(data.cardIndex || 0, flashcards.length - 1);
+    knownCards = new Set(data.knownCards || []);
+    quizAnswered = new Set(data.quizAnswered || []);
+    correctQuiz = data.correctQuiz || 0;
+    matched = new Set(data.matched || []);
+    weakTopics = data.weakTopics || {};
+    renderCard();
+    renderQuiz();
+    renderMatch();
+  } catch {
+    localStorage.removeItem(storageKey());
+  }
+}
+
 function setUnit(unitKey) {
+  if (appReady) saveProgress();
   const data = unitData[unitKey];
   activeUnit = unitKey;
   topics = data.topics.map((topic) => ({ ...topic, points: [...topic.points] }));
@@ -581,6 +674,11 @@ function setUnit(unitKey) {
   speedIndex = 0;
   speedScore = 0;
   timeLeft = 45;
+  weakTopics = {};
+  examQuestions = [];
+  examIndex = 0;
+  examCorrect = 0;
+  examAnswers = [];
   clearInterval(timerId);
   timerId = null;
   document.body.classList.remove("focus-mode");
@@ -607,7 +705,14 @@ function setUnit(unitKey) {
   renderMatch();
   renderSpeed();
   renderNotebookPrompts();
+  renderAuthors();
+  renderRoute();
+  renderWeakPanel();
+  renderGlobalResults();
+  renderExam();
+  loadProgress();
   updateProgress();
+  appReady = true;
 }
 
 function normalizeText(text) {
@@ -642,10 +747,33 @@ function updateProgress() {
   $("#dashCards").textContent = `${knownCards.size}/${flashcards.length}`;
   $("#dashQuiz").textContent = `${quizAnswered.size}/${quizQuestions.length}`;
   $("#dashMatches").textContent = `${matched.size}/${matches.length}`;
+  $("#dashWeak").textContent = getWeakestTopic();
   $("#continueTitle").textContent = knownCards.size < flashcards.length ? "Tarjetas de memoria" : "Preguntas tipo parcial";
   $("#continueText").textContent = knownCards.size < flashcards.length
     ? `Vas por la tarjeta ${cardIndex + 1}. Practicá respuesta escrita u opción múltiple.`
     : `Ya repasaste tarjetas. Seguí con ${quizQuestions.length - quizAnswered.size} preguntas.`;
+  saveProgress();
+  renderRoute();
+  renderWeakPanel();
+}
+
+function getQuestionTopic(question) {
+  const text = normalizeText(question.q || question);
+  if (/(constitucion|constitucional|convencionalidad|supremacia|reforma|poder constituyente)/.test(text)) return "Constitución y controles";
+  if (/(guariglia|publico|privado|globalizacion|estado|sociedad)/.test(text)) return "Estado y sociedad";
+  if (/(moral|social|juridica|norma|derecho objetivo|derecho subjetivo|coercion)/.test(text)) return "Normas";
+  if (/(risso|jimenez|correa|interpretacion)/.test(text)) return "Autores";
+  return "Repaso general";
+}
+
+function recordWeakTopic(question) {
+  const topic = getQuestionTopic(question);
+  weakTopics[topic] = (weakTopics[topic] || 0) + 1;
+}
+
+function getWeakestTopic() {
+  const entries = Object.entries(weakTopics).sort((a, b) => b[1] - a[1]);
+  return entries.length ? entries[0][0] : "Sin datos";
 }
 
 function getTopicCategory(topic) {
@@ -847,6 +975,7 @@ function answerQuiz(button) {
     button.classList.add("correct");
   } else {
     button.classList.add("wrong");
+    recordWeakTopic(quizQuestions[q]);
   }
 
   setTimeout(renderQuiz, 650);
@@ -910,6 +1039,144 @@ function renderNotebookPrompts() {
       `
     )
     .join("");
+}
+
+function renderAuthors() {
+  $("#authorGrid").innerHTML = (unitData[activeUnit].authors || [])
+    .map((author) => `
+      <article class="author-card">
+        <span>${author.role}</span>
+        <h3>${author.name}</h3>
+        <p>${author.idea}</p>
+        <strong>Pregunta probable</strong>
+        <p>${author.ask}</p>
+      </article>
+    `)
+    .join("");
+}
+
+function renderRoute() {
+  const route = [
+    ["Mapa conceptual", true, "Leé los bloques y ubicá los conceptos principales."],
+    ["Tarjetas", knownCards.size === flashcards.length, `${knownCards.size}/${flashcards.length} aprendidas.`],
+    ["Preguntas", quizAnswered.size === quizQuestions.length, `${quizAnswered.size}/${quizQuestions.length} respondidas.`],
+    ["Juegos", matched.size === matches.length, `${matched.size}/${matches.length} conceptos unidos.`],
+    ["Examen", examAnswers.length > 0, examAnswers.length ? `${examCorrect}/${examAnswers.length} correctas.` : "Pendiente."]
+  ];
+  $("#routeList").innerHTML = route
+    .map(([title, done, detail], index) => `
+      <article class="route-item ${done ? "done" : ""}">
+        <span>${index + 1}</span>
+        <div>
+          <h3>${title}</h3>
+          <p>${detail}</p>
+        </div>
+      </article>
+    `)
+    .join("");
+}
+
+function renderWeakPanel() {
+  const entries = Object.entries(weakTopics).sort((a, b) => b[1] - a[1]);
+  $("#weakPanel").innerHTML = `
+    <h3>Temas débiles</h3>
+    ${
+      entries.length
+        ? entries.map(([topic, count]) => `<p><strong>${topic}</strong>: ${count} error(es). Recomendación: repasá el mapa y hacé tarjetas de ese bloque.</p>`).join("")
+        : "<p>Todavía no hay errores registrados. Hacé preguntas o examen para que la web detecte prioridades.</p>"
+    }
+  `;
+}
+
+function getAllSearchItems() {
+  return Object.entries(unitData).flatMap(([unitKey, data]) => {
+    const unitLabel = data.title;
+    return [
+      ...data.topics.map((topic) => ({ unitKey, unitLabel, type: "Mapa", title: topic.title, text: topic.points.join(" ") })),
+      ...data.flashcards.map(([q, a]) => ({ unitKey, unitLabel, type: "Tarjeta", title: q, text: a })),
+      ...data.quizQuestions.map((q) => ({ unitKey, unitLabel, type: "Pregunta", title: q.q, text: q.a.join(" ") }))
+    ];
+  });
+}
+
+function renderGlobalResults() {
+  const input = $("#globalSearch");
+  if (!input) return;
+  const query = normalizeText(input.value || "");
+  const results = getAllSearchItems()
+    .filter((item) => !query || normalizeText(`${item.title} ${item.text} ${item.unitLabel} ${item.type}`).includes(query))
+    .slice(0, 30);
+
+  $("#globalResults").innerHTML = results
+    .map((item) => `
+      <article class="result-item">
+        <span>${item.unitLabel} · ${item.type}</span>
+        <h3>${item.title}</h3>
+        <p>${item.text}</p>
+        <button data-jump-unit="${item.unitKey}">Abrir unidad</button>
+      </article>
+    `)
+    .join("");
+}
+
+function startExam() {
+  examQuestions = [...quizQuestions].sort(() => Math.random() - 0.5).slice(0, Math.min(10, quizQuestions.length));
+  examIndex = 0;
+  examCorrect = 0;
+  examAnswers = [];
+  renderExam();
+}
+
+function renderExam() {
+  const box = $("#examBox");
+  if (!box) return;
+  if (!examQuestions.length) {
+    $("#examStatus").textContent = "10 preguntas";
+    box.innerHTML = `<p class="hint">Iniciá un simulacro para recibir nota final, corrección y temas débiles.</p>`;
+    return;
+  }
+  if (examIndex >= examQuestions.length) {
+    const pct = Math.round((examCorrect / examQuestions.length) * 100);
+    $("#examStatus").textContent = `${pct}%`;
+    box.innerHTML = `
+      <div class="exam-result">
+        <h3>Resultado: ${examCorrect}/${examQuestions.length}</h3>
+        <p>${pct >= 70 ? "Buen rendimiento. Cerrá repasando los errores." : "Conviene repasar los temas débiles antes de volver a intentar."}</p>
+        ${examAnswers.map((answer) => `<p><strong>${answer.ok ? "Correcta" : "Error"}:</strong> ${answer.q}<br><span>${answer.correct}</span></p>`).join("")}
+      </div>
+    `;
+    updateProgress();
+    return;
+  }
+  const item = examQuestions[examIndex];
+  $("#examStatus").textContent = `${examIndex + 1}/${examQuestions.length}`;
+  box.innerHTML = `
+    <p class="question">${item.q}</p>
+    <div class="answers">
+      ${item.a.map((answer, index) => `<button class="exam-answer" data-exam-answer="${index}">${answer}</button>`).join("")}
+    </div>
+  `;
+}
+
+function answerExam(index) {
+  const item = examQuestions[examIndex];
+  const ok = index === item.correct;
+  if (ok) examCorrect += 1;
+  else recordWeakTopic(item);
+  examAnswers.push({ q: item.q, ok, correct: item.a[item.correct] });
+  examIndex += 1;
+  renderExam();
+  updateProgress();
+}
+
+function renderPrintArea() {
+  $("#printArea").innerHTML = `
+    <h2>${unitData[activeUnit].title} - Resumen imprimible</h2>
+    <h3>Conceptos clave</h3>
+    ${topics.map((topic) => `<h4>${topic.title}</h4><ul>${topic.points.map((point) => `<li>${point}</li>`).join("")}</ul>`).join("")}
+    <h3>Preguntas de repaso</h3>
+    <ol>${quizQuestions.map((q) => `<li>${q.q}</li>`).join("")}</ol>
+  `;
 }
 
 async function copyPrompt(index, button) {
@@ -1018,6 +1285,31 @@ $("#matchGame").addEventListener("click", (event) => {
 $("#promptList").addEventListener("click", (event) => {
   const button = event.target.closest(".prompt-item");
   if (button) copyPrompt(Number(button.dataset.prompt), button);
+});
+$("#globalSearch").addEventListener("input", renderGlobalResults);
+$("#globalResults").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-jump-unit]");
+  if (button) {
+    setUnit(button.dataset.jumpUnit);
+    document.querySelector('.tab[data-view="mapa"]').click();
+  }
+});
+$("#startExam").addEventListener("click", startExam);
+$("#resetExam").addEventListener("click", () => {
+  examQuestions = [];
+  examIndex = 0;
+  examCorrect = 0;
+  examAnswers = [];
+  renderExam();
+  updateProgress();
+});
+$("#examBox").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-exam-answer]");
+  if (button) answerExam(Number(button.dataset.examAnswer));
+});
+$("#printView").addEventListener("click", () => {
+  renderPrintArea();
+  window.print();
 });
 $("#startSpeed").addEventListener("click", startSpeed);
 $("#trueBtn").addEventListener("click", () => answerSpeed(true));
