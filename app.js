@@ -1666,6 +1666,20 @@ function answerSpeed(value) {
   renderSpeed();
 }
 
+function openGameModal(game) {
+  $("#gameModal").classList.add("open");
+  $("#gameModal").setAttribute("aria-hidden", "false");
+  $("#matchModalPanel").classList.toggle("active", game === "match");
+  $("#speedModalPanel").classList.toggle("active", game === "speed");
+  $("#gameModalKicker").textContent = game === "match" ? "Conceptos" : "Velocidad";
+  $("#gameModalTitle").textContent = game === "match" ? "Unir concepto" : "Contra reloj";
+}
+
+function closeGameModal() {
+  $("#gameModal").classList.remove("open");
+  $("#gameModal").setAttribute("aria-hidden", "true");
+}
+
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
@@ -1733,6 +1747,16 @@ $("#matchGame").addEventListener("click", (event) => {
 $("#promptList").addEventListener("click", (event) => {
   const button = event.target.closest(".prompt-item");
   if (button) copyPrompt(Number(button.dataset.prompt), button);
+});
+document.querySelectorAll("[data-open-game]").forEach((button) => {
+  button.addEventListener("click", () => openGameModal(button.dataset.openGame));
+});
+$("#closeGameModal").addEventListener("click", closeGameModal);
+$("#gameModal").addEventListener("click", (event) => {
+  if (event.target.id === "gameModal") closeGameModal();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeGameModal();
 });
 $("#globalSearch").addEventListener("input", renderGlobalResults);
 $("#globalResults").addEventListener("click", (event) => {

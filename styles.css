@@ -865,17 +865,122 @@ main {
   box-shadow: none;
 }
 
-.game-layout {
+.game-layout,
+.game-launcher {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
 .game-panel,
-.notebook-panel {
+.notebook-panel,
+.game-launch-card {
   padding: 1rem;
   background:
     linear-gradient(180deg, rgba(26, 31, 43, 0.94), rgba(17, 20, 29, 0.92));
+}
+
+.game-launch-card {
+  min-height: 190px;
+  display: grid;
+  align-content: space-between;
+  gap: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.game-launch-card span {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.game-launch-card h3 {
+  margin: 0;
+  color: #eef3ff;
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+}
+
+.game-launch-card p {
+  color: #c9d3ea;
+  line-height: 1.55;
+}
+
+.game-launch-card button {
+  min-height: 2.65rem;
+  border-radius: 10px;
+  color: #101215;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight: 850;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(7, 9, 12, 0.74);
+  backdrop-filter: blur(10px);
+}
+
+.modal-overlay.open {
+  display: grid;
+}
+
+.game-modal {
+  width: min(980px, 100%);
+  max-height: min(86vh, 780px);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(26, 31, 43, 0.98), rgba(15, 18, 26, 0.98));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.modal-head span {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.modal-head h2 {
+  margin: 0;
+  color: #eef3ff;
+}
+
+.modal-close {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.modal-game-panel {
+  display: none;
+  padding-top: 1rem;
+}
+
+.modal-game-panel.active {
+  display: block;
 }
 
 .notebook-layout {
@@ -1109,6 +1214,7 @@ main {
   .topic-section-grid,
   .author-grid,
   .game-layout,
+  .game-launcher,
   .notebook-layout,
   .answers,
   .match-game,
