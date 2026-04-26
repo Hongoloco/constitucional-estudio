@@ -588,6 +588,249 @@ unitData.unidad2.notebookPrompts.push(
   "Convertí la Unidad 2 en una guía para imprimir de una carilla."
 );
 
+unitData.unidad3 = {
+  title: "Unidad 3",
+  hero: "Estado, Estado de Derecho, estructura estatal, sistemas orgánicos y teoría del órgano.",
+  intro: "Estudiá la teoría del Estado desde sus bases: origen del Estado moderno, soberanía, formas estatales, Estado de Derecho, organización administrativa y órganos estatales.",
+  sourceFile: "unidad-3-notebooklm.md",
+  topics: [
+    {
+      title: "Teoría del Estado",
+      points: [
+        "La teoría del Estado estudia origen, naturaleza, fines, cometidos, funciones públicas y estructura.",
+        "El Estado puede entenderse como forma histórica de organización social surgida en Occidente.",
+        "Cagnoni lo define como comunidad territorial regida por el poder."
+      ]
+    },
+    {
+      title: "Origen del Estado moderno",
+      points: [
+        "Se ubica históricamente hacia el siglo XV y al final del orden feudal.",
+        "Supone la superación de la poliarquía medieval y de los poderes señoriales.",
+        "Aparece un poder único y supremo, apoyado en burocracia, territorio y soberanía."
+      ]
+    },
+    {
+      title: "Rasgos definitorios del Estado",
+      points: [
+        "Soberanía: poder único capaz de formular, aplicar y garantizar la ley.",
+        "Territorio: ámbito espacial donde el poder estatal se ejerce.",
+        "Pueblo o población: elemento humano sometido y participante del orden estatal."
+      ]
+    },
+    {
+      title: "Hermann Heller",
+      points: [
+        "Advierte que el Estado actual no debe proyectarse sin cautela sobre épocas remotas.",
+        "El Estado moderno es una unidad de dominación independiente, continua y delimitada territorial y personalmente.",
+        "La Edad Media no tuvo Estado en sentido moderno, sino pluralidad de poderes o poliarquía."
+      ]
+    },
+    {
+      title: "Estado de Derecho",
+      points: [
+        "No todo Estado es Estado de Derecho: la fórmula requiere contenido legitimador.",
+        "Implica subordinación del Estado al Derecho y respeto mínimo de derechos humanos.",
+        "Jiménez de Aréchaga destaca que el Estado actúa por el Derecho y está subordinado a él."
+      ]
+    },
+    {
+      title: "Antecedentes del Estado de Derecho",
+      points: [
+        "Biscaretti distingue Estado patrimonial, Estado de policía y Estado moderno de Derecho.",
+        "El Estado patrimonial confunde derecho público y privado y concibe territorio y pueblo como patrimonio del rey.",
+        "El Estado de policía se asocia al absolutismo y a la razón de Estado por encima de la legalidad."
+      ]
+    },
+    {
+      title: "Rule of Law y Rechtsstaat",
+      points: [
+        "El rule of law inglés limita el poder absoluto y vincula ley con justicia.",
+        "El Rechtsstaat alemán sistematiza doctrinalmente la idea de Estado de Derecho.",
+        "Robert von Mohl acuña y sistematiza el concepto en la ciencia jurídica alemana."
+      ]
+    },
+    {
+      title: "Estructura del Estado",
+      points: [
+        "Atiende a la distribución espacial del poder.",
+        "Es la visión estática del Estado; la dinámica estudia fines, funciones y cometidos.",
+        "La forma estatal depende de relaciones entre poder, soberanía, territorio, población, orden jurídico y fines."
+      ]
+    },
+    {
+      title: "Monarquía y República",
+      points: [
+        "En la monarquía, la titularidad se vincula históricamente con la Corona y sucesión dinástica.",
+        "En las monarquías constitucionales actuales, la soberanía suele residir en el pueblo o nación.",
+        "En la república, la soberanía radica en el pueblo o la nación y se transmite por métodos de soberanía popular."
+      ]
+    },
+    {
+      title: "Unión personal y unión real",
+      points: [
+        "Unión personal: dos reinos comparten monarca pero conservan independencia jurídica plena.",
+        "Unión real: dos coronas bajo un mismo rey por razón jurídica deliberada y con carácter permanente.",
+        "En ambas subsisten Estados independientes, aunque pueden existir órganos comunes en la unión real."
+      ]
+    },
+    {
+      title: "Confederación",
+      points: [
+        "Surge de un pacto o tratado internacional entre Estados.",
+        "No transfiere soberanía a un ente superior y admite secesión o nulificación.",
+        "Es inestable: tiende a federalizarse o disolverse."
+      ]
+    },
+    {
+      title: "Estado federal",
+      points: [
+        "El vínculo federal es constitucional interno, no meramente internacional.",
+        "La soberanía reside en el orden total y se distribuyen competencias entre federación y entidades federadas.",
+        "Se diferencia de la confederación porque existe un Estado compuesto con Constitución común."
+      ]
+    },
+    {
+      title: "Sistemas orgánicos",
+      points: [
+        "Son conjuntos de órganos y cargos ordenados jurídicamente para cumplir tareas o cometidos.",
+        "La Constitución uruguaya prevé sistemas orgánicos nacionales y departamentales.",
+        "El vínculo entre órganos depende de los poderes jurídicos atribuidos al sistema."
+      ]
+    },
+    {
+      title: "Centralización",
+      points: [
+        "Se organiza por jerarquía: dirección, coordinación, control, revocación y avocación.",
+        "La concentración desciende líneas jerárquicas.",
+        "La desconcentración atenúa el vínculo jerárquico, pero no lo rompe."
+      ]
+    },
+    {
+      title: "Descentralización",
+      points: [
+        "El organismo central no es jerarca, aunque mantiene algún control.",
+        "Puede ser por servicios o territorial.",
+        "Se vincula con autonomía, autarquía, personalidad jurídica y patrimonio propio."
+      ]
+    },
+    {
+      title: "Teoría del órgano",
+      points: [
+        "El órgano es una ficción jurídica que intermedia entre personas físicas y personas jurídicas estatales.",
+        "Permite imputar la voluntad humana a una persona jurídica estatal.",
+        "El órgano no se identifica con la persona física que lo integra."
+      ]
+    },
+    {
+      title: "Órgano, cargo y competencia",
+      points: [
+        "El cargo es la posición que ocupa una persona física en la estructura estatal.",
+        "La competencia define atribuciones jurídicas del órgano.",
+        "No todos los cargos tienen potestad de atribuir voluntad jurídica a la persona estatal."
+      ]
+    }
+  ],
+  flashcards: [
+    ["¿Qué estudia la teoría del Estado?", "Origen, naturaleza, fines, cometidos, funciones públicas y estructura del Estado."],
+    ["¿Cómo define Cagnoni al Estado?", "Como comunidad territorial regida por el poder."],
+    ["¿Cuándo surge el Estado moderno?", "Históricamente hacia el siglo XV, con la superación del feudalismo y la poliarquía medieval."],
+    ["¿Qué es soberanía?", "Poder único capaz de formular, aplicar y garantizar la ley dentro de un territorio."],
+    ["¿Qué advierte Hermann Heller?", "Que el Estado moderno no debe proyectarse sin cautela sobre épocas históricas remotas."],
+    ["¿Qué es Estado de Derecho?", "Un Estado subordinado al Derecho con contenido legitimador y respeto mínimo de derechos humanos."],
+    ["¿Qué es Estado patrimonial?", "Forma feudal donde territorio y pueblo se conciben como patrimonio del rey."],
+    ["¿Qué es Estado de policía?", "Forma absolutista donde la razón de Estado se coloca por encima de la legalidad."],
+    ["¿Qué es Rechtsstaat?", "La formulación alemana del Estado de Derecho, sistematizada por Robert von Mohl."],
+    ["¿Qué estudia la estructura del Estado?", "La distribución espacial del poder y la forma estatal desde una visión estática."],
+    ["¿Qué diferencia monarquía y república?", "La monarquía se vincula con la Corona; la república radica la soberanía en pueblo o nación."],
+    ["¿Qué es unión personal?", "Dos reinos comparten titular monárquico pero conservan independencia jurídica plena."],
+    ["¿Qué es unión real?", "Dos coronas bajo un mismo rey por razón jurídica permanente, con posibles órganos comunes."],
+    ["¿Qué es confederación?", "Unión de Estados por tratado internacional sin transferencia plena de soberanía."],
+    ["¿Qué diferencia confederación y Estado federal?", "La confederación es vínculo internacional; el Estado federal es vínculo constitucional interno."],
+    ["¿Qué son sistemas orgánicos?", "Conjuntos de órganos y cargos vinculados jurídicamente para cumplir cometidos."],
+    ["¿Qué es centralización?", "Sistema basado en jerarquía, dirección, coordinación, control, revocación y avocación."],
+    ["¿Qué es descentralización?", "Sistema en que el organismo central no es jerarca, aunque conserva algún control."],
+    ["¿Qué explica la teoría del órgano?", "Cómo se imputa la voluntad humana a una persona jurídica estatal."],
+    ["¿Qué es el cargo?", "La posición que ocupa una persona física dentro de la estructura estatal."]
+  ],
+  quizQuestions: [
+    { q: "La teoría del Estado estudia:", a: ["Origen, naturaleza, fines, funciones y estructura", "Solo contratos privados", "Solo derecho penal", "Únicamente costumbres sociales"], correct: 0 },
+    { q: "Cagnoni define al Estado como:", a: ["Comunidad territorial regida por el poder", "Contrato entre comerciantes", "Costumbre familiar", "Órgano judicial aislado"], correct: 0 },
+    { q: "El Estado moderno surge con:", a: ["Superación de la poliarquía medieval", "Aparición de la moda", "Fin de la moneda", "Supresión del territorio"], correct: 0 },
+    { q: "Soberanía significa:", a: ["Poder único para formular, aplicar y garantizar la ley", "Simple cortesía social", "Ausencia de territorio", "Dependencia total de otro Estado"], correct: 0 },
+    { q: "Heller sostiene que en la Edad Media había más bien:", a: ["Poliarquía o pluralidad de poderes", "Estado moderno completo", "Soberanía democrática consolidada", "Estado federal contemporáneo"], correct: 0 },
+    { q: "No todo Estado es Estado de Derecho porque:", a: ["Se exige contenido legitimador y respeto de derechos", "Basta cualquier norma injusta", "No hay Derecho en el Estado", "Toda policía crea ciudadanía"], correct: 0 },
+    { q: "El Estado patrimonial se caracteriza por:", a: ["Confusión entre derecho público y privado", "División estricta de poderes", "Sufragio universal", "Control constitucional"], correct: 0 },
+    { q: "El Estado de policía se asocia con:", a: ["Absolutismo y razón de Estado", "Federalismo democrático", "Autonomía municipal plena", "Control convencional"], correct: 0 },
+    { q: "La estructura del Estado atiende a:", a: ["Distribución espacial del poder", "Solo sanciones penales", "Solo moral", "Solo contratos"], correct: 0 },
+    { q: "En la república la soberanía radica en:", a: ["Pueblo o Nación", "Corona hereditaria exclusivamente", "Empresa privada", "Órgano sin competencia"], correct: 0 },
+    { q: "La confederación nace de:", a: ["Tratado internacional", "Constitución interna federal", "Sentencia municipal", "Costumbre moral"], correct: 0 },
+    { q: "En el Estado federal el vínculo es:", a: ["Constitucional interno", "Meramente dinástico", "Solo moral", "Exclusivamente familiar"], correct: 0 },
+    { q: "Los sistemas orgánicos son:", a: ["Conjuntos de órganos y cargos ordenados jurídicamente", "Tratados internacionales solamente", "Normas morales", "Partidos políticos sin órganos"], correct: 0 },
+    { q: "La centralización se basa en:", a: ["Jerarquía", "Secesión", "Nulificación", "Ausencia de control"], correct: 0 },
+    { q: "La descentralización implica que:", a: ["El organismo central no es jerarca", "Se elimina toda personalidad jurídica", "No hay control alguno", "Todo depende del rey"], correct: 0 },
+    { q: "La teoría del órgano explica:", a: ["La imputación de voluntad humana a la persona jurídica estatal", "La moda social", "La sanción moral", "La unión dinástica"], correct: 0 }
+  ],
+  matches: [
+    ["Estado", "Comunidad territorial regida por el poder."],
+    ["Soberanía", "Poder único capaz de formular, aplicar y garantizar la ley."],
+    ["Estado de Derecho", "Estado subordinado al Derecho con respeto de derechos."],
+    ["Confederación", "Unión de Estados por tratado internacional."],
+    ["Estado federal", "Estado compuesto con vínculo constitucional interno."],
+    ["Centralización", "Organización basada en jerarquía."],
+    ["Descentralización", "Organización sin jerarquía del órgano central."],
+    ["Órgano", "Ficción jurídica que imputa voluntad a la persona estatal."]
+  ],
+  speedFacts: [
+    ["La teoría del Estado estudia también estructura, fines y funciones.", true],
+    ["Para Heller, el Estado moderno existió igual en toda época remota.", false],
+    ["El Estado de Derecho exige contenido legitimador.", true],
+    ["La confederación transfiere soberanía plena a un ente superior.", false],
+    ["En el Estado federal el vínculo es constitucional interno.", true],
+    ["La centralización se basa en jerarquía.", true],
+    ["La desconcentración rompe totalmente el vínculo jerárquico.", false],
+    ["El órgano no se identifica con la persona física que lo ocupa.", true],
+    ["El cargo es una posición ocupada por una persona física.", true],
+    ["La descentralización puede ser territorial o por servicios.", true]
+  ],
+  notebookPrompts: [
+    "Explícame el origen del Estado moderno según la Unidad 3.",
+    "Compará Estado patrimonial, Estado de policía y Estado de Derecho.",
+    "Haceme 15 preguntas difíciles sobre estructura del Estado y sistemas orgánicos.",
+    "Explicá diferencia entre confederación y Estado federal con ejemplos.",
+    "Resumí la teoría del órgano y distinguí órgano, cargo y competencia.",
+    "Preparame un simulacro oral sobre Estado, soberanía, centralización y descentralización.",
+    "Detectá mis temas débiles de Unidad 3 si te digo las preguntas que fallé.",
+    "Convertí la Unidad 3 en una guía imprimible de una carilla."
+  ],
+  authors: [
+    {
+      name: "Hermann Heller",
+      role: "Teoría del Estado",
+      idea: "El Estado moderno es una realidad histórica específica y no debe proyectarse sin cautela hacia el pasado.",
+      ask: "Explicá por qué Heller cuestiona hablar de Estado medieval en sentido moderno."
+    },
+    {
+      name: "Aníbal Cagnoni",
+      role: "Concepto y forma de Estado",
+      idea: "Define al Estado como comunidad territorial regida por el poder y vincula forma estatal con poder, soberanía, territorio, población y fines.",
+      ask: "Relacioná forma de Estado con poder, territorio y población."
+    },
+    {
+      name: "Biscaretti di Ruffia",
+      role: "Formas históricas del Estado",
+      idea: "Distingue Estado patrimonial, Estado de policía y Estado moderno de Derecho.",
+      ask: "Compará las tres formas históricas y señalá qué garantías ofrece cada una."
+    },
+    {
+      name: "Jellinek",
+      role: "Órgano y voluntad estatal",
+      idea: "Solo los individuos tienen voluntad, pero el Derecho permite imputarla a asociaciones y personas estatales.",
+      ask: "Explicá cómo la teoría del órgano atribuye voluntad al Estado."
+    }
+  ]
+};
+
 let activeUnit = "unidad1";
 
 let cardIndex = 0;
